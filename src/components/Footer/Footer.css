@@ -1,0 +1,28 @@
+@keyframes fadeInFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(10%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    animation: fadeInFromBottom 0.8s ease-in-out; 
+}
+
+.footer__privacy {
+    color: var(--color-blue);
+    cursor: pointer;
+}
+
+.footer__content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}

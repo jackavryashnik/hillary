@@ -1,0 +1,30 @@
+.marquee {
+    white-space: nowrap;
+    overflow: hidden;
+    background: var(--color-black);
+    color: var(--color-white);
+    width: 100vw;
+    font-size: 28px;
+    overflow: hidden;
+}
+
+.marquee span {
+    display: inline-block;
+    animation: marqueeAnimation 10s linear infinite;
+    
+}
+
+.sale_percent {
+    font-weight: bold;
+    
+    color: var(--color-red);
+}
+
+@keyframes marqueeAnimation {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}

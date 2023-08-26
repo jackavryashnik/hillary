@@ -1,0 +1,88 @@
+.introdaction__product,
+.introdaction__procedure {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+}
+
+.product-description,
+.procedure-description {
+    width: 50%;
+}
+
+.product-description__products {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.products__add-item,
+.products__main-item {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.products__add-item img,
+.products__main-item img {
+    height: 42px;
+}
+
+.product-description p,
+.introdaction__procedure p {
+    margin-bottom: 18px;
+    font-size: 18px;
+    line-height: 1.4285em;
+}
+
+.primary-text-color {
+    font-weight: 900;
+}
+
+.product-description h3,
+.introdaction__procedure h3 {
+    margin-bottom: 18px;
+    font-weight: 600;
+}
+
+.introdaction__product-img,
+.introdaction__procedure-img {
+    height: 360px;
+    margin: auto;
+}
+
+.animation-rotate {
+    /* Додайте стиль для початкової позиції */
+    transform: rotateY(180deg);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+  /* Додайте стиль для анімації з'явлення та обертання */
+.animation-rotate.appear {
+    transform: rotateY(0deg);
+    opacity: 1;
+}
+
+@media screen and (min-width: 2000px) {
+    .introdaction__product,
+    .introdaction__procedure {
+        width: 80%;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .introdaction__product,
+    .introdaction__procedure {
+        display: flex;
+        flex-direction: column;
+    }
+    .product-description,
+    .procedure-description {
+        width: 100vw;
+        padding: 16px 32px;
+    }
+}

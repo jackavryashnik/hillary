@@ -1,0 +1,31 @@
+.testimonials {
+    overflow: hidden;
+}
+
+.testimonials__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.testimonials__content-text {
+    margin-bottom: 22px;
+    line-height: 2.2em;
+}
+
+.testimonials__content-text p {
+    text-align: center;
+    font-size: 22px;
+}
+
+.testimonials__content-testimonials {
+    margin: 32px 0 72px;
+    width: 100vw;
+}
+
+@media screen and (max-width: 800px) {
+    .testimonials__content-testimonials {
+        margin: 0;
+    }
+}

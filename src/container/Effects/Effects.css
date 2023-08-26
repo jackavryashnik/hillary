@@ -1,0 +1,37 @@
+.effects__items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 32px 0 72px 0;
+}
+
+.effects__items-active {
+    animation: slideInFromLeft 1s ease-in-out;
+}
+
+.effects__item {
+    animation: slideInFromLeft 1s ease-in-out forwards;
+}
+
+.effects__item-image {
+    position: absolute;
+    left: -2000px;
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .effects__items {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+    }
+}
