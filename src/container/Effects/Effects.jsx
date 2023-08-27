@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useInView } from 'react-intersection-observer';
 import { SectionTitle, RoundItem } from "../../components";
 import { images } from "..//../constants";

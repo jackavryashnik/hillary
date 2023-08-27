@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useInView } from 'react-intersection-observer';
-import { images } from "../../constants";
-// import { images, itemData } from "../../constants";
+import { images, itemData } from "../../constants";
 import { SectionTitle } from "../../components";
 import "./Introduction.css";
 
@@ -9,29 +8,29 @@ const Introdaction = () => {
     const image = "grapePlusGuasha";
     const anchorImage = "grapeMain";
 
-    // const [description, setDescription] = useState('description');
-    // const fetchedDescription = itemData();
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         if (fetchedDescription.data) {
-    //             setDescription(fetchedDescription.data.landing_product.description || 'description');
-    //         }
-    //     };
+    const [description, setDescription] = useState('description');
+    const fetchedDescription = itemData();
+    useEffect(() => {
+        const fetchData = async () => {
+            if (fetchedDescription.data) {
+                setDescription(fetchedDescription.data.landing_product.description || 'description');
+            }
+        };
 
-    //     fetchData();
-    // }, [fetchedDescription]);
+        fetchData();
+    }, [fetchedDescription]);
     
-    // const [anchor, setAnchor] = useState('Антицелюлітна олія Грейпфрут Hillary Grapefruit Anti Cellulite, 100 мл');
-    // const fetchedAnchor = itemData();
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         if (fetchedAnchor.data) {
-    //             setAnchor(fetchedAnchor.data.landing_product.full_title || 'Антицелюлітна олія Грейпфрут Hillary Grapefruit Anti Cellulite, 100 мл');
-    //         }
-    //     };
+    const [anchor, setAnchor] = useState('Антицелюлітна олія Грейпфрут Hillary Grapefruit Anti Cellulite, 100 мл');
+    const fetchedAnchor = itemData();
+    useEffect(() => {
+        const fetchData = async () => {
+            if (fetchedAnchor.data) {
+                setAnchor(fetchedAnchor.data.landing_product.full_title || 'Антицелюлітна олія Грейпфрут Hillary Grapefruit Anti Cellulite, 100 мл');
+            }
+        };
 
-    //     fetchData();
-    // }, [fetchedAnchor]);
+        fetchData();
+    }, [fetchedAnchor]);
 
     const items = document.querySelectorAll(".animation-rotate");
 
@@ -67,8 +66,8 @@ const Introdaction = () => {
                 />
 
                 <section className="product-description">
-                {/* <div className="description" dangerouslySetInnerHTML={{ __html: description }} /> */}
-                    <p>
+                <div className="description" dangerouslySetInnerHTML={{ __html: description }} />
+                    {/* <p>
                         Легка шовкова олія для структурування контурів тіла. Має
                         виражену лімфодренажну, розгладжуючу, відновлюючу дію.
                     </p>
@@ -79,7 +78,7 @@ const Introdaction = () => {
                         забезпечує проведення активних речовин в глибокі шари
                         шкірі, підвищуючи ефективність дії олії у 2 рази.{" "}
                     </p>
-                    <p>Олія миттєво вбирається та не залишає слідів на одязі</p>
+                    <p>Олія миттєво вбирається та не залишає слідів на одязі</p> */}
                     <h3 className="product-description__subtitle">
                         До набору входять:
                     </h3>
@@ -87,8 +86,7 @@ const Introdaction = () => {
                         <div className="products__add-item">
                             <img src={images[anchorImage]} alt="grape oil" />
                             <a href="#add-product">
-                                {/* {anchor} */}
-                                anchor
+                                {anchor}
                             </a>
                         </div>
                         <div className="products__main-item">

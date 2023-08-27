@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { useInView } from 'react-intersection-observer';
 import { SectionTitle } from "../../components";
-import { images } from "../../constants";
-// import { images, itemData } from "../../constants";
+import { images, itemData } from "../../constants";
 import "./AddProduct.css";
 
 const AddProduct = () => {
     const image = "grapeMain";
     const [content, setContent] = useState('');
-    // const fetchedContent = itemData();
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         if (fetchedContent.data) {
-    //             setContent(fetchedContent.data.landing_product.active_ingredient || '');
-    //         }
-    //     };
+    
+    const fetchedContent = itemData();
+    useEffect(() => {
+        const fetchData = async () => {
+            if (fetchedContent.data) {
+                setContent(fetchedContent.data.landing_product.active_ingredient || '');
+            }
+        };
 
-    //     fetchData();
-    // }, [fetchedContent]);
+        fetchData();
+    }, [fetchedContent]);
 
     const { ref, inView } = useInView({
         threshold: 0,
@@ -41,7 +41,7 @@ const AddProduct = () => {
                     <h3 className="content__text-subtitle">
                         Активні Інгредієнти
                     </h3>
-                    {/* <div className="description" dangerouslySetInnerHTML={{ __html: content }} /> */}
+                    <div className="description" dangerouslySetInnerHTML={{ __html: content }} />
                     <p>
                         <b>Ефірна олія грейпфрута</b> має здатність відновлювати
                         жировий обмін, тому може стати ефективним засобом для

@@ -1,11 +1,9 @@
 import React from "react";
 import { images } from "../../constants";
-// import { myData } from "../../constants";
 import { OrderWidget } from "../../components";
 import "./MainScreen.css";
 
 const MainScreen = () => {
-    // const image = myData.images.BG1;
     const image = "grapeBgHeader1";
 
     return (

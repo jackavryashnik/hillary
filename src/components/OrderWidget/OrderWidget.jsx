@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import { images, itemData, fetchAmount } from "../../constants";
-import { images, fetchAmount } from "../../constants";
+import { images, itemData, fetchAmount } from "../../constants";
 import { Timer } from "../../components";
 import { useInView } from 'react-intersection-observer';
 import "./OrderWidget.css";
@@ -20,41 +19,41 @@ const OrderWidget = () => {
         fetchData();
     }, [fetchedAmount]);
  
-    // const [newPrice, setNewPrice] = useState(697);
-    // const fetchedNewPrice = itemData();
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         if (fetchedNewPrice.data) {
-    //             setNewPrice(fetchedNewPrice.data.landing_box.price || 697);
-    //         }
-    //     };
+    const [newPrice, setNewPrice] = useState(697);
+    const fetchedNewPrice = itemData();
+    useEffect(() => {
+        const fetchData = async () => {
+            if (fetchedNewPrice.data) {
+                setNewPrice(fetchedNewPrice.data.landing_box.price || 697);
+            }
+        };
 
-    //     fetchData();
-    // }, [fetchedNewPrice]);
+        fetchData();
+    }, [fetchedNewPrice]);
 
-    // const [oldPrice, setOldPrice] = useState(1161);
-    // const fetchedOldPrice = itemData();
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         if (fetchedOldPrice.data) {
-    //             setOldPrice(fetchedOldPrice.data.landing_box.old_price || 1161);
-    //         }
-    //     };
+    const [oldPrice, setOldPrice] = useState(1161);
+    const fetchedOldPrice = itemData();
+    useEffect(() => {
+        const fetchData = async () => {
+            if (fetchedOldPrice.data) {
+                setOldPrice(fetchedOldPrice.data.landing_box.old_price || 1161);
+            }
+        };
 
-    //     fetchData();
-    // }, [fetchedOldPrice]);
+        fetchData();
+    }, [fetchedOldPrice]);
 
-    // const [subtitle, setSubitle] = useState('Грейпфрутова олія');
-    // const fetchedSubtitle = itemData();
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         if (fetchedSubtitle.data) {
-    //             setSubitle(fetchedSubtitle.data.landing_product.title || 'Грейпфрутова олія');
-    //         }
-    //     };
+    const [subtitle, setSubitle] = useState('Грейпфрутова олія');
+    const fetchedSubtitle = itemData();
+    useEffect(() => {
+        const fetchData = async () => {
+            if (fetchedSubtitle.data) {
+                setSubitle(fetchedSubtitle.data.landing_product.title || 'Грейпфрутова олія');
+            }
+        };
 
-    //     fetchData();
-    // }, [fetchedSubtitle]);
+        fetchData();
+    }, [fetchedSubtitle]);
 
     const { ref, inView } = useInView({
         threshold: 0,
@@ -85,8 +84,7 @@ const OrderWidget = () => {
                         </span>
                         <span className="plus">+</span>
                         <span className="offer__subtitle-text">
-                            {/* {subtitle} */}
-                            subtitle
+                            {subtitle}
                         </span>
                     </div>
                 </div>
@@ -96,8 +94,7 @@ const OrderWidget = () => {
                         <span>Звичайна ціна:</span>
                         <p>
                             <span className="price__value">
-                                {/* {oldPrice} */}
-                                oldPrice
+                                {oldPrice}
                             </span>
                             <small className="price__currency">грн.</small>
                         </p>
@@ -106,8 +103,7 @@ const OrderWidget = () => {
                         <span>Ціна сьогодні:</span>
                         <p>
                             <span className="price__value">
-                                {/* {newPrice} */}
-                                newPrice
+                                {newPrice}
                                 </span>
                             <small className="price__currency">грн.</small>
                         </p>

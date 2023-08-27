@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-// import { images, itemData, fetchAmount } from "../../constants";
 import { images, fetchAmount } from "../../constants";
 import { Timer } from "../../components";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import "./BottomOrderWidget.css";
 
-const OrderWidget = () => {
+const OrderWidget = ({ data }) => {
     const [selectedPayment, setSelectedPayment] = useState("novaposhta");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [valid, setValid] = useState(true);
@@ -24,41 +23,26 @@ const OrderWidget = () => {
         fetchData();
     }, [fetchedAmount]);
  
-    // const [newPrice, setNewPrice] = useState(697);
-    // const fetchedNewPrice = itemData();
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         if (fetchedNewPrice.data) {
-    //             setNewPrice(fetchedNewPrice.data.landing_box.price || 697);
-    //         }
-    //     };
+    const [newPrice, setNewPrice] = useState(697);
+    useEffect(() => {
+        if (data && data.data) {
+            setNewPrice(data.data.landing_box.price || 697);
+        }
+    }, [data]);
 
-    //     fetchData();
-    // }, [fetchedNewPrice]);
+    const [oldPrice, setOldPrice] = useState(1161);
+    useEffect(() => {
+        if (data && data.data) {
+            setOldPrice(data.data.landing_box.old_price || 1161);
+        }
+    }, [data]);
 
-    // const [oldPrice, setOldPrice] = useState(1161);
-    // const fetchedOldPrice = itemData();
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         if (fetchedOldPrice.data) {
-    //             setOldPrice(fetchedOldPrice.data.landing_box.old_price || 1161);
-    //         }
-    //     };
-
-    //     fetchData();
-    // }, [fetchedOldPrice]);
-
-    // const [subtitle, setSubitle] = useState('Грейпфрутова олія');
-    // const fetchedSubtitle = itemData();
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         if (fetchedSubtitle.data) {
-    //             setSubitle(fetchedSubtitle.data.landing_product.title || 'Грейпфрутова олія');
-    //         }
-    //     };
-
-    //     fetchData();
-    // }, [fetchedSubtitle]);
+    const [subtitle, setSubitle] = useState('Грейпфрутова олія');
+    useEffect(() => {
+        if (data && data.data) {
+            setSubitle(data.data.landing_product.title || 'Грейпфрутова олія');
+        }
+    }, [data]);
 
     const handlePaymentChange = (event) => {
         setSelectedPayment(event.target.value);
@@ -111,8 +95,7 @@ const OrderWidget = () => {
                         </span>
                         <span className="plus">+</span>
                         <span className="offer__subtitle-text">
-                            {/* {subtitle} */}
-                            subtitle
+                            {subtitle}
                         </span>
                     </div>
                 </div>
@@ -122,8 +105,7 @@ const OrderWidget = () => {
                         <span className="price__title">Звичайна ціна:</span>
                         <p>
                             <span className="price__value">
-                                oldPrice
-                                {/* {oldPrice} */}
+                                {oldPrice}
                             </span>
                             <small className="price__currency">грн.</small>
                         </p>
@@ -132,8 +114,7 @@ const OrderWidget = () => {
                         <span className="price__title">Ціна сьогодні:</span>
                         <p>
                             <span className="price__value">
-                            {/* {newPrice} */}
-                            newPrice
+                            {newPrice}
                             </span>
                             <small className="price__currency">грн.</small>
                         </p>
