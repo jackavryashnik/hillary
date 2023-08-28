@@ -9,28 +9,22 @@ const Introdaction = () => {
     const anchorImage = "grapeMain";
 
     const [description, setDescription] = useState('description');
-    const fetchedDescription = itemData();
-    useEffect(() => {
-        const fetchData = async () => {
-            if (fetchedDescription.data) {
-                setDescription(fetchedDescription.data.landing_product.description || 'description');
-            }
-        };
-
-        fetchData();
-    }, [fetchedDescription]);
-    
+    const fetchedData = itemData();
     const [anchor, setAnchor] = useState('Антицелюлітна олія Грейпфрут Hillary Grapefruit Anti Cellulite, 100 мл');
-    const fetchedAnchor = itemData();
     useEffect(() => {
         const fetchData = async () => {
-            if (fetchedAnchor.data) {
-                setAnchor(fetchedAnchor.data.landing_product.full_title || 'Антицелюлітна олія Грейпфрут Hillary Grapefruit Anti Cellulite, 100 мл');
+            if (fetchedData.data) {
+                setDescription(fetchedData.data.landing_product.description || 'description');
+            }
+
+            if (fetchedData.data) {
+                setAnchor(fetchedData.data.landing_product.full_title || 'Антицелюлітна олія Грейпфрут Hillary Grapefruit Anti Cellulite, 100 мл');
             }
         };
 
         fetchData();
-    }, [fetchedAnchor]);
+    }, []);
+    
 
     const items = document.querySelectorAll(".animation-rotate");
 

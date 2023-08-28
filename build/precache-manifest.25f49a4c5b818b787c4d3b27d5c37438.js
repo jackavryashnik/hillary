@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "6a700e04db8775541e02",
-    "url": "./static/css/main.e23a9c5f.chunk.css"
+    "revision": "386a1c23b076461b7e19",
+    "url": "./static/css/main.9766308f.chunk.css"
   },
   {
-    "revision": "6a700e04db8775541e02",
-    "url": "./static/js/main.6a700e04.chunk.js"
+    "revision": "386a1c23b076461b7e19",
+    "url": "./static/js/main.386a1c23.chunk.js"
   },
   {
-    "revision": "b1bc243fed067031f257",
-    "url": "./static/css/1.a851f92b.chunk.css"
+    "revision": "b61e8c52f34608be5bf6",
+    "url": "./static/css/1.629c430c.chunk.css"
   },
   {
-    "revision": "b1bc243fed067031f257",
-    "url": "./static/js/1.b1bc243f.chunk.js"
+    "revision": "b61e8c52f34608be5bf6",
+    "url": "./static/js/1.b61e8c52.chunk.js"
   },
   {
     "revision": "4a686d48d5a089750c49",
@@ -148,23 +148,23 @@ self.__precacheManifest = [
     "url": "./static/media/tutorial_old.633e7f62.jpg"
   },
   {
-    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
-    "url": "./static/media/slick.b7c9e1e4.woff"
-  },
-  {
     "revision": "ced611daf7709cc778da928fec876475",
     "url": "./static/media/slick.ced611da.eot"
-  },
-  {
-    "revision": "d41f55a78e6f49a5512878df1737e58a",
-    "url": "./static/media/slick.d41f55a7.ttf"
   },
   {
     "revision": "f97e3bbf73254b0112091d0192f17aec",
     "url": "./static/media/slick.f97e3bbf.svg"
   },
   {
-    "revision": "bef262d4ce1d72b0e458adab470b78c4",
+    "revision": "d41f55a78e6f49a5512878df1737e58a",
+    "url": "./static/media/slick.d41f55a7.ttf"
+  },
+  {
+    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
+    "url": "./static/media/slick.b7c9e1e4.woff"
+  },
+  {
+    "revision": "2a172cf79b9749529c592b16d49c81be",
     "url": "./index.html"
   }
 ];

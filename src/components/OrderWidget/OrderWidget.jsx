@@ -7,53 +7,36 @@ import "./OrderWidget.css";
 const OrderWidget = () => {
     const image = "grapePlusGuasha";
 
+    const [subtitle, setSubitle] = useState('Грейпфрутова олія');
+    const [oldPrice, setOldPrice] = useState(1161);
+    const [newPrice, setNewPrice] = useState(697);
     const [amount, setAmount] = useState(11);
+    
     const fetchedAmount = fetchAmount();
+    const fetchedData = itemData();
+
     useEffect(() => {
         const fetchData = async () => {
             if (fetchedAmount.vars) {
                 setAmount(fetchedAmount.vars.lp_remaining_grape || 11);
             }
-        };
 
-        fetchData();
-    }, [fetchedAmount]);
- 
-    const [newPrice, setNewPrice] = useState(697);
-    const fetchedNewPrice = itemData();
-    useEffect(() => {
-        const fetchData = async () => {
-            if (fetchedNewPrice.data) {
-                setNewPrice(fetchedNewPrice.data.landing_box.price || 697);
+            if (fetchedData.data) {
+                setNewPrice(fetchedData.data.landing_box.price || 697);
+            }
+
+            if (fetchedData.data) {
+                setOldPrice(fetchedData.data.landing_box.old_price || 1161);
+            }
+
+            if (fetchedData.data) {
+                setSubitle(fetchedData.data.landing_product.title || 'Грейпфрутова олія');
             }
         };
 
         fetchData();
-    }, [fetchedNewPrice]);
+    }, []);
 
-    const [oldPrice, setOldPrice] = useState(1161);
-    const fetchedOldPrice = itemData();
-    useEffect(() => {
-        const fetchData = async () => {
-            if (fetchedOldPrice.data) {
-                setOldPrice(fetchedOldPrice.data.landing_box.old_price || 1161);
-            }
-        };
-
-        fetchData();
-    }, [fetchedOldPrice]);
-
-    const [subtitle, setSubitle] = useState('Грейпфрутова олія');
-    const fetchedSubtitle = itemData();
-    useEffect(() => {
-        const fetchData = async () => {
-            if (fetchedSubtitle.data) {
-                setSubitle(fetchedSubtitle.data.landing_product.title || 'Грейпфрутова олія');
-            }
-        };
-
-        fetchData();
-    }, [fetchedSubtitle]);
 
     const { ref, inView } = useInView({
         threshold: 0,

@@ -17,7 +17,7 @@ const AddProduct = () => {
         };
 
         fetchData();
-    }, [fetchedContent]);
+    }, []);
 
     const { ref, inView } = useInView({
         threshold: 0,
