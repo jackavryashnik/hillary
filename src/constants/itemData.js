@@ -17,7 +17,7 @@ const itemData = () => {
         };
 
         fetchData();
-    }, []);
+    }, [data]);
 
     return data;
 };
