@@ -1,42 +1,35 @@
 import React, { useState, useEffect } from "react";
-import { images, itemData, fetchAmount } from "../../constants";
+import { images } from "../../constants";
 import { Timer } from "../../components";
 import { useInView } from 'react-intersection-observer';
 import "./OrderWidget.css";
 
-const OrderWidget = () => {
+const OrderWidget = ({ fetchedData }) => {
     const image = "grapePlusGuasha";
 
-    const [subtitle, setSubitle] = useState('Грейпфрутова олія');
+    const [subtitle, setSubtitle] = useState('Грейпфрутова олія');
     const [oldPrice, setOldPrice] = useState(1161);
     const [newPrice, setNewPrice] = useState(697);
     const [amount, setAmount] = useState(11);
-    
-    const fetchedAmount = fetchAmount();
-    const fetchedData = itemData();
 
     useEffect(() => {
         const fetchData = async () => {
-            if (fetchedAmount.vars) {
-                setAmount(fetchedAmount.vars.lp_remaining_grape || 11);
-            }
-
             if (fetchedData.data) {
-                setNewPrice(fetchedData.data.landing_box.price || 697);
-            }
-
-            if (fetchedData.data) {
-                setOldPrice(fetchedData.data.landing_box.old_price || 1161);
-            }
-
-            if (fetchedData.data) {
-                setSubitle(fetchedData.data.landing_product.title || 'Грейпфрутова олія');
+                const landingBoxPrice = fetchedData.data.data.landing_box ? fetchedData.data.data.landing_box.price : 697;
+                const landingBoxOldPrice = fetchedData.data.data.landing_box ? fetchedData.data.data.landing_box.old_price : 1161;
+                const landingProductTitle = fetchedData.data.data.landing_product ? fetchedData.data.data.landing_product.title : 'Грейпфрутова олія';
+                const remaining = fetchedData.data ? fetchedData.data.data.remaining : 1161;
+    
+                setNewPrice(landingBoxPrice);
+                setOldPrice(landingBoxOldPrice);
+                setSubtitle(landingProductTitle);
+                setAmount(remaining);
             }
         };
-
+    
         fetchData();
-    }, []);
-
+    }, [fetchedData]);
+    
 
     const { ref, inView } = useInView({
         threshold: 0,
@@ -73,7 +66,7 @@ const OrderWidget = () => {
                 </div>
 
                 <div className="price flex__center">
-                <div ref={ref} className={`price__old ${inView ? 'animation-rotate' : ''}`}>
+                    <div ref={ref} className={`price__old ${inView ? 'animation-rotate' : ''}`}>
                         <span>Звичайна ціна:</span>
                         <p>
                             <span className="price__value">
@@ -87,7 +80,7 @@ const OrderWidget = () => {
                         <p>
                             <span className="price__value">
                                 {newPrice}
-                                </span>
+                            </span>
                             <small className="price__currency">грн.</small>
                         </p>
                     </div>

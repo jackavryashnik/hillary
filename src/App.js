@@ -14,8 +14,11 @@ import {
     Usage,
 } from "./container";
 import { TopLine, Marquee, Header, Footer, StickyWidget } from "./components";
+import { itemData } from "./constants";
+
 
 function App() {
+    const fetchedData = itemData();
     const [
         shouldRenderComponent,
         setShouldRenderComponent,
@@ -61,19 +64,19 @@ function App() {
             <Header />
             <Marquee />
             {shouldRenderComponent ? <StickyWidget /> : null}
-            <MainScreen />
+            <MainScreen fetchedData={fetchedData} />
             <TopLine />
-            <Introduction />
+            <Introduction fetchedData={fetchedData} />
             <Effects />
             <Procedure />
-            <AddProduct />
+            <AddProduct fetchedData={fetchedData} />
             <Usage />
             <Massage />
             <Quality />
             <Testimonials />
             <HowToOrder />
             <Marquee />
-            <OrderScreen />
+            <OrderScreen fetchedData={fetchedData} />
             <Footer />
         </div>
     );

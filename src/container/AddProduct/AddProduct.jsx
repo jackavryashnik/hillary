@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { useInView } from 'react-intersection-observer';
 import { SectionTitle } from "../../components";
-import { images, itemData } from "../../constants";
+import { images } from "../../constants";
 import "./AddProduct.css";
 
-const AddProduct = () => {
+const AddProduct = ({ fetchedData }) => {
     const image = "grapeMain";
     const [content, setContent] = useState('');
     
-    const fetchedContent = itemData();
     useEffect(() => {
         const fetchData = async () => {
-            if (fetchedContent.data) {
-                setContent(fetchedContent.data.landing_product.active_ingredient || '');
+            if (fetchedData && fetchedData.data && fetchedData.data.data.landing_product) {
+                setContent(fetchedData.data.data.landing_product.active_ingredient || '');
             }
         };
-
+    
         fetchData();
-    }, []);
+    }, [fetchedData]);
+    
 
     const { ref, inView } = useInView({
         threshold: 0,
@@ -42,7 +42,7 @@ const AddProduct = () => {
                         Активні Інгредієнти
                     </h3>
                     <div className="description" dangerouslySetInnerHTML={{ __html: content }} />
-                    <p>
+                    {/* <p>
                         <b>Ефірна олія грейпфрута</b> має здатність відновлювати
                         жировий обмін, тому може стати ефективним засобом для
                         зниження ваги, розбиває жирові відкладення на шкірі і
@@ -72,7 +72,7 @@ const AddProduct = () => {
                         використовують для активізації кровообігу, вирівнювання
                         шкіри. Завдяки цій олії, шкіра стає оксамитовою і
                         ніжною.
-                    </p>
+                    </p> */}
                 </div>
             </section>
         </div>

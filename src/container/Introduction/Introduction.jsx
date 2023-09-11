@@ -1,29 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { useInView } from 'react-intersection-observer';
-import { images, itemData } from "../../constants";
+import { images } from "../../constants";
 import { SectionTitle } from "../../components";
 import "./Introduction.css";
 
-const Introdaction = () => {
+const Introdaction = ({ fetchedData }) => {
     const image = "grapePlusGuasha";
     const anchorImage = "grapeMain";
 
     const [description, setDescription] = useState('description');
-    const fetchedData = itemData();
     const [anchor, setAnchor] = useState('Антицелюлітна олія Грейпфрут Hillary Grapefruit Anti Cellulite, 100 мл');
-    useEffect(() => {
-        const fetchData = async () => {
-            if (fetchedData.data) {
-                setDescription(fetchedData.data.landing_product.description || 'description');
-            }
 
-            if (fetchedData.data) {
-                setAnchor(fetchedData.data.landing_product.full_title || 'Антицелюлітна олія Грейпфрут Hillary Grapefruit Anti Cellulite, 100 мл');
-            }
-        };
-
-        fetchData();
-    }, []);
+   useEffect(() => {
+    if (fetchedData && fetchedData.data && fetchedData.data.data.landing_product) {
+        setDescription(fetchedData.data.data.landing_product.description || 'description');
+        setAnchor(fetchedData.data.data.landing_product.full_title || 'Антицелюлітна олія Грейпфрут Hillary Grapefruit Anti Cellulite, 100 мл');
+    }
+    }, [fetchedData]);
     
 
     const items = document.querySelectorAll(".animation-rotate");

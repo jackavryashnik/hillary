@@ -1,45 +1,39 @@
 import React, { useState, useEffect } from "react";
-import { images, itemData, fetchAmount } from "../../constants";
+import { images } from "../../constants";
 import { Timer } from "../../components";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import "./BottomOrderWidget.css";
 
-const OrderWidget = () => {
+const OrderWidget = ({ fetchedData }) => {
     const [selectedPayment, setSelectedPayment] = useState("novaposhta");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [valid, setValid] = useState(true);
 
 
-    const [subtitle, setSubitle] = useState('Грейпфрутова олія');
+    const [subtitle, setSubtitle] = useState('Грейпфрутова олія');
     const [newPrice, setNewPrice] = useState(697);
     const [oldPrice, setOldPrice] = useState(1161);
     const [amount, setAmount] = useState(11);
-    
-    const fetchedAmount = fetchAmount();
-    const fetchedData = itemData();
 
     useEffect(() => {
         const fetchData = async () => {
-            if (fetchedAmount.vars) {
-                setAmount(fetchedAmount.vars.lp_remaining_grape || 11);
-            }
-
             if (fetchedData.data) {
-                setNewPrice(fetchedData.data.landing_box.price || 697);
-            }
-
-            if (fetchedData.data) {
-                setOldPrice(fetchedData.data.landing_box.old_price || 1161);
-            }
-
-            if (fetchedData.data) {
-                setSubitle(fetchedData.data.landing_product.title || 'Грейпфрутова олія');
+                const landingBoxPrice = fetchedData.data.data.landing_box ? fetchedData.data.data.landing_box.price : 697;
+                const landingBoxOldPrice = fetchedData.data.data.landing_box ? fetchedData.data.data.landing_box.old_price : 1161;
+                const landingProductTitle = fetchedData.data.data.landing_product ? fetchedData.data.data.landing_product.title : 'Грейпфрутова олія';
+                const remaining = fetchedData.data ? fetchedData.data.data.remaining : 1161;
+    
+                setNewPrice(landingBoxPrice);
+                setOldPrice(landingBoxOldPrice);
+                setSubtitle(landingProductTitle);
+                setAmount(remaining);
             }
         };
-
+    
         fetchData();
-    }, []);
+    }, [fetchedData]);
+    
 
     const handlePaymentChange = (event) => {
         setSelectedPayment(event.target.value);

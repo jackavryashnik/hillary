@@ -3,9 +3,9 @@ import { images } from "../../constants";
 import { OrderWidget } from "../../components";
 import "./MainScreen.css";
 
-const MainScreen = () => {
+const MainScreen = ({ fetchedData }) => {
     const image = "grapeBgHeader1";
-
+    
     return (
         <div className="main-screen" id="order">
             <div className="main-screen__img">
@@ -16,7 +16,7 @@ const MainScreen = () => {
                 />
             </div>
             <div>
-                <OrderWidget />
+                <OrderWidget fetchedData={fetchedData} />
             </div>
         </div>
     );
