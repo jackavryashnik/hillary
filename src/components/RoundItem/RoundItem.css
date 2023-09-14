@@ -12,6 +12,7 @@
     align-content: center;
     align-items: center;
     overflow: hidden;
+    width: fit-content;
     
     border-radius: 50%;
     padding: 6px;
@@ -39,8 +40,4 @@
 
 .round-item__description {
     text-transform: uppercase;
-}
-
-.round-item__description-delivery {
-    text-transform: capitalize;
 }

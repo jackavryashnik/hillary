@@ -328,9 +328,11 @@ button, input {
         align-items: center;
     }
 
-    .widget-wrapper {
-        width: 100vw;
+    .bottom-widget-wrapper {
         position: relative;
+        max-width: 95% !important;
+        margin: 0 auto;
+        padding: 16px 0;
     }
 
     .inputs {
@@ -339,7 +341,8 @@ button, input {
 
     .bottom-order-widget {
         position: static;
-        margin: 16px auto;
+        margin: 32px 2% 0;
+        padding: 16px 26px;
     }
     
     .input-form {

@@ -4,19 +4,17 @@
     background: var(--color-black);
     color: var(--color-white);
     width: 100vw;
+    height: 34px;
     font-size: 28px;
-    overflow: hidden;
 }
 
 .marquee span {
     display: inline-block;
     animation: marqueeAnimation 10s linear infinite;
-    
 }
 
 .sale_percent {
     font-weight: bold;
-    
     color: var(--color-red);
 }
 
@@ -26,5 +24,12 @@
     }
     100% {
         transform: translateX(-100%);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .marquee {
+        font-size: 16px;
+        height: 19px;
     }
 }

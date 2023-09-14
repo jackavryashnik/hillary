@@ -1,7 +1,7 @@
 import React from "react";
 import "./Marquee.css";
 
-const Marquee = () => {
+const MarqueeTop = () => {
     return (
         <div className="marquee flex__center">
             <span>
@@ -152,4 +152,4 @@ const Marquee = () => {
     );
 };
 
-export default Marquee;
+export default MarqueeTop;

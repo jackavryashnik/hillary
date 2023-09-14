@@ -1,6 +1,6 @@
 import React from "react";
 import { useInView } from 'react-intersection-observer';
-import { SectionTitle, RoundItem } from "../../components";
+import { SectionTitleWithBR, RoundItem } from "../../components";
 import { images } from "..//../constants";
 import "./Effects.css";
 
@@ -12,7 +12,7 @@ const Effects = () => {
 
     return (
         <div className="effects">
-            <SectionTitle startText={"ефекти від"} boldText={"масажу гуаша"} />
+            <SectionTitleWithBR startText={"ефекти від"} boldText={"масажу гуаша"} />
             <div ref={ref}
                 className={`effects__items ${inView ? 'effects__items-active' : ''}`}>
                 <RoundItem

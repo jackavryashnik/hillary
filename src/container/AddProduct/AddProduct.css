@@ -36,12 +36,24 @@
     font-size: 22px;
 }
 
-.content__text p {
+.content__text .description span {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.content__text .description li {
     font-size: 18px;
     line-height: 1.4285em;
     margin: 0 0 1em;
 
 }
+
+.content__text li {
+    list-style-type: "🌱";
+    line-height: 1.6em;
+    margin-bottom: 0.4em;
+}
+
 @keyframes rollIn {
     0% {
         opacity: 0;

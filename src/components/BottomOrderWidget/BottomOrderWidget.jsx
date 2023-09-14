@@ -68,7 +68,7 @@ const OrderWidget = ({ fetchedData }) => {
     handleScroll();
 
     return (
-        <div className="widget-wrapper">
+        <div className="bottom-widget-wrapper" id="order-bottom">
             <div className="bottom-order-widget flex__center">
                 <Timer />
 

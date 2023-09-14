@@ -54,6 +54,7 @@
     .usage__content-text {
         min-width: 100vw;
         min-height: auto;
+        width: 100%;
         padding: 16px 32px;
         margin: 0;
     }

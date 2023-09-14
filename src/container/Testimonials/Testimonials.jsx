@@ -1,6 +1,6 @@
 import React from "react";
 import TestimonialsCard from "./TestimonialsCard";
-import { SectionTitle } from "../../components";
+import { SectionTitleWithBR } from "../../components";
 import { testimonialsData } from "../../constants";
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
@@ -14,6 +14,7 @@ function SampleNextArrow(props) {
             className={className}
             style={{
                 ...style,
+                zIndex: 5,
                 color: "#ffffff",
                 height: "26px",
                 width: "26px",
@@ -36,6 +37,7 @@ function SamplePrevArrow(props) {
             className={className}
             style={{
                 ...style,
+                zIndex: 5,
                 color: "#ffffff",
                 height: "26px",
                 width: "26px",
@@ -88,7 +90,7 @@ const Testimonials = () => {
 
     return (
         <div className="testimonials">
-            <SectionTitle
+            <SectionTitleWithBR
                 startText={"Відгуки "}
                 boldText={"задоволених "}
                 endText={"покупців"}

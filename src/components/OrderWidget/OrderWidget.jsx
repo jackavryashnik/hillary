@@ -36,6 +36,13 @@ const OrderWidget = ({ fetchedData }) => {
         triggerOnce: true,
     })
 
+    const handleButtonClick = () => {
+        const element = document.getElementById("order-bottom");
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     return (
         <div className="widget-wrapper">
             <div className="order-widget flex__center">
@@ -115,7 +122,7 @@ const OrderWidget = ({ fetchedData }) => {
                         </p>
                     </div>
                 </div>
-                <div className="order__button btn-pulse">Замовити зараз</div>
+                <div className="order__button btn-pulse"  onClick={handleButtonClick}>Замовити зараз</div>
                 <b className="lastpack__wrapper">
                     Залишилось всього{" "}
                     <span className="lastpack">

@@ -17,13 +17,20 @@ const StickyWidget = () => {
         return null;
     }
 
+    const handleButtonClick = () => {
+        const element = document.getElementById("order-bottom");
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     return (
         <div className="sticky-widget__wrapper">
             <div className="sticky-widget">
                 <Timer />
-                <div className="stiky-order__button btn-pulse">
+                <div className="stiky-order__button btn-pulse" onClick={handleButtonClick}>
                     <i className="fa-solid fa-cart-plus"></i>{" "}
-                    <span>Замовити</span>
+                    <span className="button__text">Замовити</span>
                 </div>
             </div>
         </div>

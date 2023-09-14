@@ -13,7 +13,7 @@ import {
     Testimonials,
     Usage,
 } from "./container";
-import { TopLine, Marquee, Header, Footer, StickyWidget } from "./components";
+import { TopLine, MarqueeBottom, MarqueeTop, Header, Footer, StickyWidget } from "./components";
 import { itemData } from "./constants";
 
 
@@ -62,7 +62,7 @@ function App() {
     return (
         <div className="App">
             <Header />
-            <Marquee />
+            <MarqueeTop />
             {shouldRenderComponent ? <StickyWidget /> : null}
             <MainScreen fetchedData={fetchedData} />
             <TopLine />
@@ -75,7 +75,7 @@ function App() {
             <Quality />
             <Testimonials />
             <HowToOrder />
-            <Marquee />
+            <MarqueeBottom />
             <OrderScreen fetchedData={fetchedData} />
             <Footer />
         </div>
