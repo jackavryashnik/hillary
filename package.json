@@ -1,7 +1,7 @@
 {
   "name": "hillary",
   "version": "0.1.0",
-  "homepage": "./",
+  "homepage": "https://jackavryashnik.github.io/hillary",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
@@ -21,7 +21,9 @@
     "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -42,6 +44,7 @@
     ]
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.22.15"
+    "@babel/preset-env": "^7.22.15",
+    "gh-pages": "^6.1.0"
   }
 }
