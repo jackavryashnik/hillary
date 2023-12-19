@@ -10,7 +10,7 @@ const OrderWidget = ({ fetchedData }) => {
     const [subtitle, setSubtitle] = useState('Грейпфрутова олія');
     const [oldPrice, setOldPrice] = useState(1161);
     const [newPrice, setNewPrice] = useState(697);
-    const [amount, setAmount] = useState(11);
+    const [amount, setAmount] = useState(calculateAmount());
 
     useEffect(() => {
         const fetchData = async () => {
@@ -42,6 +42,23 @@ const OrderWidget = ({ fetchedData }) => {
             element.scrollIntoView({ behavior: "smooth" });
         }
     };
+
+    function convertMs(ms) {
+        // Number of milliseconds per unit of time
+        const second = 1000;
+        const minute = second * 60;
+        const hour = minute * 60;
+        const day = hour * 24;
+    
+        // Remaining hours
+        const hours = Math.floor((ms % day) / hour);
+    
+        return hours;
+      }
+    
+      function calculateAmount() {
+        return (24 - convertMs(Date.now())) * 3;
+      }
 
     return (
         <div className="widget-wrapper">

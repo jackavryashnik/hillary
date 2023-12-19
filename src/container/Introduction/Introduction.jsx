@@ -41,6 +41,12 @@ const Introdaction = ({ fetchedData }) => {
         triggerOnce: true,
     })
 
+    const descriptionText = `<p>Легка шовкова олія для структурування контурів тіла. Має виражену лімфодренажну, розгладжуючу, відновлюючу дію.</p>
+
+    <p>Дорогоцінна олія ксименії у складі ефективно бореться проти апельсинової кірки та розтяжок, стимулює спалення жирових тканин. А олія дині Калахарі активно зволожує та забезпечує проведення активних речовин в глибокі шари шкірі, підвищуючи ефективність дії олії у 2 рази.</p>
+    
+    <p>Олія миттєво вбирається та не залишає слідів на одязі</p>`
+
     return (
         <div className="introdaction">
             <SectionTitle boldText={"набір"} endText={"для масажу гуаша"} />
@@ -53,7 +59,7 @@ const Introdaction = ({ fetchedData }) => {
                 />
 
                 <section className="product-description">
-                <div className="description" dangerouslySetInnerHTML={{ __html: description }} />
+                <div className="description" dangerouslySetInnerHTML={{ __html: descriptionText }} />
                     <h3 className="product-description__subtitle">
                         До набору входять:
                     </h3>
